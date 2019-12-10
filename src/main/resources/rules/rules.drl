@@ -8,7 +8,6 @@ global JFrame okno;
 declare enum Pytania
     FICTION_TYPE("What type of fiction you'd like?",
         ["Popular fiction",
-         "Fiction for kids",
          "Literary fiction",
          "Fiction for kids",
          "Non-fiction",
@@ -28,12 +27,58 @@ declare enum Pytania
         FAN_HORROR("Then maybe you'd enjoy a fantasy horror book?",
             ["Bring it on", "Better not"]),
 
+//todo do zmiany
         ROM_SUSP_TIME("Romance, time travel or maybe some book that keeps in suspense?",
             ["Romance",
              "Time travel",
              "Suspense"]),
 
+        // Literary fiction branch
+
+        DYSTOPIA("Would you like to read some dystopia positions?",
+                 ["Yes", "No"]),
+
+        FANTASY("Then maybe some Fantasy?",
+                 ["Sure", "No"]),
+
+        IDENTITY("Would you like to some Identity books?",
+                 ["Why not?", "No"]),
+
+        MAGICAL_REALISM("How about Magical Realism?",
+                 ["Yep", "Nope"]),
+
+        COMIC("Would you like to smile with comic book?",
+                 ["Bring it on", "Better not"]),
+
+        CRIME("Would you like to read some crime positions?",
+                 ["Yes", "No"]),
+
+        HISTORY("How about history literature?",
+                 ["Ok", "No"]),
+
+        FAMILY_LITERARY("Maybe you are in mood for a family book?",
+                 ["Sure", "Nope"]),
+
+        MYSTERY_LITERARY("Looking for Mystery?",
+                 ["YES !", "Definitly No"]),
+            MYSTERY_LITERARY_TYPE("Which type of mystery?",
+                     ["Literary", "Suspense"]),
+
+        BASEBALL("Do you want to know more about baseball?",
+                 ["Of course", "No"]),
+
+        NEW_CULTURE("Would you like to discover new cultures?",
+                 ["Yes", "No"]),
+            NEW_CULTURE_TYPE    ("Which topic is interesting for you?",
+                     ["Civil rights", "Epistolary", "Japan", "Historical",
+                      "Romance", "War"]),
+
+        FANTASY_TYPE("Eventually you have to choose fantasy book. Which topic is the most interesting?",
+                 ["Epic", "Video games", "Vampires", "Historical", "Magic",
+                  "Literary", "Romance"]),
+
         // Fiction for Kids branch
+//        todo do poprawy (rozdzielic)
         AGE("What is the age the book should be suitable for?",
             ["Children below 12",
              "Teen 12-17",
@@ -54,13 +99,6 @@ declare enum Pytania
 
         ADULTS_TYPE("What do you prefer?", ["A historical one", "A comedy, please"]),
 
-        // Self-Help branch
-
-        SELF_HELP("Would you like a book about relationships, businesses or maybe inspirational one?",
-            ["Relationships",
-             "Inspirational",
-             "Business"]),
-
         // Nonfiction
 
         MEMOIRS("Would you like to read a memoir?", ["Yeah", "I'd go for something else"]),
@@ -77,7 +115,19 @@ declare enum Pytania
 
         BIOGRAPHY("What about a biography?", ["Yeah", "Nope"]),
 
-        GRAMMAR("A grammar-related story?", ["Why not?", "I'd go for something else"]);
+        GRAMMAR("A grammar-related story?", ["Why not?", "I'd go for something else"]),
+
+        //todo dokonczyc
+
+
+        // Self-Help branch
+        //todo rozdzielic
+        SELF_HELP("Would you like a book about relationships, businesses or maybe inspirational one?",
+            ["Relationships",
+             "Inspirational",
+             "Business"]);
+
+
 
     tresc: String
     opcje: ArrayList
