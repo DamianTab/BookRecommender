@@ -68,7 +68,7 @@ declare enum Pytania
         BASEBALL("Do you want to know more about baseball?",
                  ["Of course", "No"]),
 
-        NEW_CULTURE("Would you like to discover new cultures?",
+        CULTURE_OR_FANTASY("Would you like to discover new cultures?",
                  ["Yes", "No"]),
             NEW_CULTURE_TYPE    ("Which topic is interesting for you?",
                      ["Civil rights", "Epistolary", "Japan", "Historical",
@@ -123,10 +123,10 @@ declare enum Pytania
 
 
         // Self-Help branch
-        //todo rozdzielic
-        SELF_HELP("Would you like a book about relationships, businesses or maybe inspirational one?",
-            ["Relationships",
-             "Inspirational",
+        RELATIONSHIP("Would you like a relationship story?", ["Yes", "No"]),
+
+        INSPIRATIONAL_OR_BUSINESS("Would you like a book about business or maybe inspirational one?",
+            ["Inspirational",
              "Business"]);
 
 

@@ -8,22 +8,29 @@ rule "genre-self help"
 when
     ans: Odpowiedz(pytanie == Pytania.FICTION_TYPE, wybor == "Self-help book");
 then
-    insert(Pytania.SELF_HELP);
+    insert(Pytania.RELATIONSHIP);
 end
 
 
-rule "self-help-relationships"
+rule "RELATIONSHIP-Yes"
 when
-    ans: Odpowiedz(pytanie == Pytania.SELF_HELP, wybor == "Relationships");
+    ans: Odpowiedz(pytanie == Pytania.RELATIONSHIP, wybor == "Yes");
 then
     insert(new Wynik
         ("Quiet: The Power of Introverts in a World that Can't Stop Talking by Susan Cain"));
 end
 
-
-rule "self-help-inspirational"
+rule "RELATIONSHIP-No"
 when
-    ans: Odpowiedz(pytanie == Pytania.SELF_HELP, wybor == "Inspirational");
+    ans: Odpowiedz(pytanie == Pytania.RELATIONSHIP, wybor == "No");
+then
+    insert(Pytania.INSPIRATIONAL_OR_BUSINESS);
+end
+
+
+rule "INSPIRATIONAL_OR_BUSINESS-inspirational"
+when
+    ans: Odpowiedz(pytanie == Pytania.INSPIRATIONAL_OR_BUSINESS, wybor == "Inspirational");
 then
     insert(new Wynik
         ("The Five People you Meet in Heaven by Mitch Albom\n" +
@@ -32,9 +39,9 @@ then
 end
 
 
-rule "self-help-business"
+rule "INSPIRATIONAL_OR_BUSINESS-business"
 when
-    ans: Odpowiedz(pytanie == Pytania.SELF_HELP, wybor == "Business");
+    ans: Odpowiedz(pytanie == Pytania.INSPIRATIONAL_OR_BUSINESS, wybor == "Business");
 then
     insert(new Wynik
         ("The Five Dysfunctions of a Team by Patrick Lencioni\n" +
