@@ -79,13 +79,14 @@ declare enum Pytania
                   "Literary", "Romance"]),
 
         // Fiction for Kids branch
-//        todo do poprawy (rozdzielic)
-        AGE("What is the age the book should be suitable for?",
-            ["Children below 12",
-             "Teen 12-17",
-             "Young Adults over 17"]),
 
-        TEEN_TYPE("What is your favourite type of book?",
+        YOUNG_ADULTS("Do you want literature for young adults?",
+                 ["Yeah", "Nope"]),
+
+        CHILDREN_OR_TEEN("Do you want literature for children or teens?",
+                 ["Children", "Teen"]),
+
+        TEEN_TYPE("Then, what is your favourite type of teen book?",
             ["Historical",
              "Thriller",
              "Fantasy",

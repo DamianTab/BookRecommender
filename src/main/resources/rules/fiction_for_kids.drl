@@ -8,33 +8,36 @@ rule "genre-kidfic"
 when
     ans: Odpowiedz(pytanie == Pytania.FICTION_TYPE, wybor == "Fiction for kids");
 then
-    insert(Pytania.AGE);
+    insert(Pytania.YOUNG_ADULTS);
 end
 
-
-rule "age-kid"
+rule "YOUNG_ADULTS-Yeah"
 when
-    ans: Odpowiedz(pytanie == Pytania.AGE, wybor == "Children below 12");
-then
-    insert(Pytania.KIDS_TYPE);
-end
-
-
-rule "age-teen"
-when
-    ans: Odpowiedz(pytanie == Pytania.AGE, wybor == "Teen 12-17");
-then
-    insert(Pytania.TEEN_TYPE);
-end
-
-
-rule "age-youngadult"
-when
-    ans: Odpowiedz(pytanie == Pytania.AGE, wybor == "Young Adults over 17");
+    ans: Odpowiedz(pytanie == Pytania.YOUNG_ADULTS, wybor == "Yeah");
 then
     insert(Pytania.ADULTS_TYPE);
 end
 
+rule "YOUNG_ADULTS-Nope"
+when
+    ans: Odpowiedz(pytanie == Pytania.YOUNG_ADULTS, wybor == "Nope");
+then
+    insert(Pytania.CHILDREN_OR_TEEN);
+end
+
+rule "CHILDREN_OR_TEEN-Children"
+when
+    ans: Odpowiedz(pytanie == Pytania.CHILDREN_OR_TEEN, wybor == "Children");
+then
+    insert(Pytania.KIDS_TYPE);
+end
+
+rule "CHILDREN_OR_TEEN-Teen"
+when
+    ans: Odpowiedz(pytanie == Pytania.CHILDREN_OR_TEEN, wybor == "Teen");
+then
+    insert(Pytania.TEEN_TYPE);
+end
 
 rule "kid-coming of age"
 when
