@@ -2,5 +2,144 @@ package main;
 import javax.swing.*;
 import java.util.ArrayList;
 
-
  // Non-fiction branch
+ //todo zrobic
+ rule "genre-Non-fiction"
+ when
+     ans: Odpowiedz(pytanie == Pytania.FICTION_TYPE, wybor == "Non-fiction");
+ then
+     insert(Pytania.MEMOIRS);
+ end
+
+ rule "MEMOIRS-Yeah"
+ when
+     ans: Odpowiedz(pytanie == Pytania.MEMOIRS, wybor == "Yeah");
+ then
+     insert(Pytania.MEMO_TYPE);
+ end
+
+ //todo memotype
+
+ rule "MEMOIRS-I'd go for something else"
+ when
+     ans: Odpowiedz(pytanie == Pytania.MEMOIRS, wybor == "I'd go for something else");
+ then
+     insert(Pytania.FOOD);
+ end
+
+ rule "FOOD-Why not?"
+ when
+     ans: Odpowiedz(pytanie == Pytania.FOOD, wybor == "Why not?");
+ then
+     insert(new Wynik("The Omnivore's Dilemma: A natural history of four meal by Michael Pollan"));
+ end
+
+ rule "FOOD-No"
+ when
+     ans: Odpowiedz(pytanie == Pytania.FOOD, wybor == "No");
+ then
+     insert(Pytania.BUSINESS);
+ end
+
+ rule "BUSINESS-Yes"
+ when
+     ans: Odpowiedz(pytanie == Pytania.BUSINESS, wybor == "Yes");
+ then
+     insert(new Wynik("The Tipping Point by Malcolm Gladwell\n" +
+                               "Blink by Malcolm Gladwell\n" +
+                               "Freakonomics by Steven D. Levitt"));
+ end
+
+ rule "BUSINESS-No"
+ when
+     ans: Odpowiedz(pytanie == Pytania.BUSINESS, wybor == "No");
+ then
+     insert(Pytania.BIOGRAPHY);
+ end
+
+ rule "BIOGRAPHY-Yeah"
+ when
+     ans: Odpowiedz(pytanie == Pytania.BIOGRAPHY, wybor == "Yeah");
+ then
+     insert(new Wynik("The Immortal Life of Henritta Lack by Rebecca Skloot\n" +
+                               "Prespolis by Marjane Satrapi\n"));
+ end
+
+ rule "BIOGRAPHY-Nope"
+ when
+     ans: Odpowiedz(pytanie == Pytania.BIOGRAPHY, wybor == "Nope");
+ then
+     insert(Pytania.GRAMMAR);
+ end
+
+ rule "GRAMMAR-Why not?"
+ when
+     ans: Odpowiedz(pytanie == Pytania.GRAMMAR, wybor == "Why not?");
+ then
+     insert(new Wynik("Eats, Shoots and Leaves by Lynne Truss"));
+ end
+
+ rule "GRAMMAR-I'd go for something else"
+ when
+     ans: Odpowiedz(pytanie == Pytania.GRAMMAR, wybor == "I'd go for something else");
+ then
+     insert(Pytania.HISTORY_NONFICTION);
+ end
+
+
+rule "HISTORY_NONFICTION-Ok"
+when
+  ans: Odpowiedz(pytanie == Pytania.HISTORY_NONFICTION, wybor == "Ok");
+then
+  insert(new Wynik("The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America by Eric Larson"));
+end
+
+rule "HISTORY_NONFICTION-Not this time"
+when
+  ans: Odpowiedz(pytanie == Pytania.HISTORY_NONFICTION, wybor == "Not this time");
+then
+  insert(Pytania.HUMOR);
+end
+
+ rule "HUMOR-Yes"
+ when
+     ans: Odpowiedz(pytanie == Pytania.HUMOR, wybor == "Yes");
+ then
+     insert(new Wynik("Me Talk Pretty One Day by David Sedaris"));
+ end
+
+ rule "HUMOR-Yes, but actually no"
+ when
+     ans: Odpowiedz(pytanie == Pytania.HUMOR, wybor == "Yes, but actually no");
+ then
+     insert(Pytania.INSPIRATION);
+ end
+
+rule "INSPIRATION-Lovely!"
+when
+  ans: Odpowiedz(pytanie == Pytania.INSPIRATION, wybor == "Lovely!");
+then
+  insert(new Wynik("The Last Lecture by Randy Pausch"));
+end
+
+rule "INSPIRATION-Nope"
+when
+  ans: Odpowiedz(pytanie == Pytania.INSPIRATION, wybor == "Nope");
+then
+  insert(Pytania.US_GOVERNMENT_OR_NUTRITION);
+end
+
+rule "US_GOVERNMENT_OR_NUTRITION-U.S. Government"
+when
+  ans: Odpowiedz(pytanie == Pytania.US_GOVERNMENT_OR_NUTRITION, wybor == "U.S. Government");
+then
+  insert(new Wynik("The Liberty Amendments: Restoring the American Republic by Mark R. Levin"));
+end
+
+rule "US_GOVERNMENT_OR_NUTRITION-Nutrition"
+when
+  ans: Odpowiedz(pytanie == Pytania.US_GOVERNMENT_OR_NUTRITION, wybor == "Nutrition");
+then
+  insert(new Wynik("Fast Food Nation by Eric Schlosser"));
+end
+

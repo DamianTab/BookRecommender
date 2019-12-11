@@ -119,8 +119,14 @@ declare enum Pytania
 
         GRAMMAR("A grammar-related story?", ["Why not?", "I'd go for something else"]),
 
-        //todo dokonczyc
+        HISTORY_NONFICTION("Then maybe something about history?", ["Ok", "Not this time"]),
 
+        HUMOR("What about book with humor?", ["Yes", "Yes, but actually no"]),
+
+        INSPIRATION("Would you like a inspirational book ?", ["Lovely!", "Nope"]),
+
+        US_GOVERNMENT_OR_NUTRITION("Now you have to make decision between U.S.Government and Nutrition theme. Choose wisely !
+        ", ["U.S. Government", "Nutrition"]),
 
         // Self-Help branch
         RELATIONSHIP("Would you like a relationship story?", ["Yes", "No"]),
