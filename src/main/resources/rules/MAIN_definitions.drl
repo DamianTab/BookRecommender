@@ -27,10 +27,11 @@ declare enum Pytania
         FAN_HORROR("Then maybe you'd enjoy a fantasy horror book?",
             ["Bring it on", "Better not"]),
 
-//todo do zmiany
-        ROM_SUSP_TIME("Romance, time travel or maybe some book that keeps in suspense?",
-            ["Romance",
-             "Time travel",
+        ROMANCE("Would you like an intense Romance?",
+            ["Yes", "No"]),
+
+        TIME_OR_SUSPENSE("Time travel or maybe some book that keeps in suspense?",
+            ["Time travel",
              "Suspense"]),
 
         // Literary fiction branch

@@ -80,22 +80,29 @@ rule "fanhorror-nope"
 when
     ans: Odpowiedz(pytanie == Pytania.FAN_HORROR, wybor == "Better not");
 then
-    insert(Pytania.ROM_SUSP_TIME);
+    insert(Pytania.ROMANCE);
 end
 
-rule "RST-Romance"
+rule "ROMANCE-Yes"
 when
-    ans: Odpowiedz(pytanie == Pytania.ROM_SUSP_TIME, wybor == "Romance");
+    ans: Odpowiedz(pytanie == Pytania.ROMANCE, wybor == "Yes");
 then
     insert(new Wynik(
         "The Other Boleyn Girl by Philippa Gregory\n" +
         "Snow Flower and the Secret Fan by Lisa See"));
 end
 
-
-rule "RST-Time travel"
+rule "ROMANCE-No"
 when
-    ans: Odpowiedz(pytanie == Pytania.ROM_SUSP_TIME, wybor == "Time travel");
+    ans: Odpowiedz(pytanie == Pytania.ROMANCE, wybor == "No");
+then
+    insert(Pytania.TIME_OR_SUSPENSE);
+end
+
+
+rule "TIME_OR_SUSPENSE-Time travel"
+when
+    ans: Odpowiedz(pytanie == Pytania.TIME_OR_SUSPENSE, wybor == "Time travel");
 then
     insert(new Wynik
         ("The Time Traveller's Wife by Audrey Niffenegger\n" +
@@ -103,9 +110,9 @@ then
 end
 
 
-rule "RST-Suspense"
+rule "TIME_OR_SUSPENSE-Suspense"
 when
-    ans: Odpowiedz(pytanie == Pytania.ROM_SUSP_TIME, wybor == "Suspense");
+    ans: Odpowiedz(pytanie == Pytania.TIME_OR_SUSPENSE, wybor == "Suspense");
 then
     insert(new Wynik
         ("Gone Girl by Gillian Flynn\n" +
